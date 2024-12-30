@@ -1,0 +1,20 @@
+The following CSS code snippet demonstrates an uncommon error related to the usage of the `:has()` pseudo-class within a media query. The issue lies in the specificity of the selectors and how the browser handles them across different screen sizes.  The intended behavior is for the `.container` class to have a red background when it contains an element with the class `.item`, but only when the screen width is less than 768px. However, due to specificity conflicts, this might not always work as expected.
+
+```css
+@media (max-width: 768px) {
+  .container:has(.item) {
+    background-color: red;
+  }
+}
+
+.container {
+  background-color: blue;
+  padding: 20px;
+}
+
+.item {
+  width: 50px;
+  height: 50px;
+  background-color: green;
+}
+```
